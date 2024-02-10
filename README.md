@@ -12,8 +12,7 @@ Considering there are more than 30K pincodes and at least 100 million merchants 
 - **Next.js**: Frontend 
 
 ## Setup
-Provide instructions on how to set up the project locally, including any necessary installations and configurations.
-List the environment variables required for the project to run successfully.
+The application is deployed using Google Cloud Run and Google Compute. Link to the service is https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/
 
 ## API Documentation
 
