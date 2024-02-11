@@ -14,6 +14,28 @@ Considering there are more than 30K pincodes and at least 100 million merchants 
 ## Setup
 The application is deployed using Google Cloud Run and Google Compute. Link to the service is https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/
 
+### Interactions
+- **https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/MerchantServiceability**
+- **/**: To onboard the Merchant.
+- **/merchants/<merchant_id>**: Merchant SignIn page. Edit Merchant details and Pincode Serviceability.
+- **/MerchantServiceability**: Verify Merchant serviceability to an array of pincodes.
+
+### Local Setup
+Make Sure you have rustc and Next.js installed
+```
+git clone https://github.com/aniketp02/ONDC-Merchant-Pincode-Serviceability.git
+cd backend
+rustup override set nightly
+cargo run
+```
+The backend runs at port 8000 by default, you can change the configurations in the `Rocket.toml` file and change the `.env` file to set the SMTP and DB urls.
+```
+cd frontend
+npm run dev
+```
+The frontend runs at port 3000 by default.
+
+
 ## API Documentation
 
 ### Add Merchant
