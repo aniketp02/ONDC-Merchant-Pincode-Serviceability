@@ -5,6 +5,11 @@ Pincode based serviceability allows merchants to define the pincodes where they 
 In ONDC, definition & verification of pincode based serviceability is separated, i.e. merchants define the pincodes they serve and buyer apps verify whether a particular pincode (of buyer) can be served by any of the available merchants;
 Considering there are more than 30K pincodes and at least 100 million merchants (of which about 10% may enable pincode based serviceability), this requires an optimal data structure for storing the pincode serviceability by merchant (i.e. a sparse matrix of 10M*30K) so that verification is near real-time.
 
+The basic flow of the application is as displayed
+
+
+![Alt text](app_flow.png?raw=true "Title")
+
 ## Technologies Used
 - **Rust**: for secure and scalable backend. 
 - **Redis**: for quick retrieval of merchant serviceability.
