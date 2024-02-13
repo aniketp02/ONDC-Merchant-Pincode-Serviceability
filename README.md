@@ -12,16 +12,18 @@ Considering there are more than 30K pincodes and at least 100 million merchants 
 - **Next.js**: Frontend 
 
 ## Setup
-The application is deployed using Google Cloud Run and Google Compute. Link to the service is https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/
+The application is **deployed** using **Google Cloud Run and Google Compute**. Link to the service is https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/
+
+`You may need to allow Mixed Content/ Insecure Content in site settings of your browser`
 
 ### Interactions
-- **https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/MerchantServiceability**
-- **/**: To onboard the Merchant.
-- **/merchants/<merchant_id>**: Merchant SignIn page. Edit Merchant details and Pincode Serviceability.
-- **/MerchantServiceability**: Verify Merchant serviceability to an array of pincodes.
+- **https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/**: To onboard the Merchant.
+- **https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/merchants/<merchant_id>**: Merchant SignIn page. Edit Merchant details and Pincode Serviceability.
+- **https://pincode-serviceability-frontend-4m44wkcyfa-uc.a.run.app/MerchantServiceability**: Verify Merchant serviceability to an array of pincodes.
 
 ### Local Setup
-Make Sure you have rustc and Next.js installed
+Make Sure you have rust and Next.js installed
+#### Backend
 ```
 git clone https://github.com/aniketp02/ONDC-Merchant-Pincode-Serviceability.git
 cd backend
@@ -29,11 +31,22 @@ rustup override set nightly
 cargo run
 ```
 The backend runs at port 8000 by default, you can change the configurations in the `Rocket.toml` file and change the `.env` file to set the SMTP and DB urls.
+#### Frontend
 ```
 cd frontend
 npm run dev
 ```
 The frontend runs at port 3000 by default.
+
+#### Postgres setup 
+Install diesel cli and run the diesel migrations. This creates the database (if not already existing) and runs all the migrations.
+```
+cargo install diesel_cli --no-default-features --features postgres
+diesel migration run
+```
+
+#### Redis Setup
+Start the Redis server and configure the redis connection port.
 
 
 ## API Documentation
